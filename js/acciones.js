@@ -19,14 +19,15 @@ function Comienza() {
 	//Actualiza la aceleracion cada 2 segundos
 	//
 	var opciones = { frequency: 2000 };
-	watchID = navigator.accelerometer.watchAcceleration(Correcto, Error, opciones); navigator.geolocation.getCurrentPosition(Localiza, ErrorLocalizacion);
+	watchID = navigator.accelerometer.watchAcceleration(Correcto, Error, opciones); 
+	navigator.geolocation.getCurrentPosition(Localiza, ErrorLocalizacion);
 }
 //Detiene la 'observacion' de la aceleracion 
 //
 function Detente() { 
 if (watchID) {
 	navigator.accelerometer.clearWatch(watchID);
-	watchID= null;
+	watchID = null;
    }
 }
  // Correcto: Toma una captura de la aceleracion
@@ -38,7 +39,7 @@ if (watchID) {
 					 'Aceleracion en Z: ' + acceleration.z + '<br />' +
                      'Intervalo: '   + acceleration.timestamp + '<br />';
  }
- //error: Falla al obtener aceleracion 
+ //Error: Falla al obtener aceleracion 
  //
  function Error() { 
  alert('Error!');
